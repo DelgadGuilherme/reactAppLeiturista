@@ -4,6 +4,7 @@ import { Camera } from 'expo-camera';
 import * as MediaLibrary from 'expo-media-library';
 import styles from "../../Style";
 import * as Location from 'expo-location';
+import * as FileSystem from 'expo-file-system';
 
 export default function TakePicture(props) {
   const ref = useRef(null);
@@ -39,6 +40,7 @@ export default function TakePicture(props) {
   }
 
   async function take() {
+    saveLocation();
     if (ref) {
       const opt = {
         quality: 0.8,
@@ -46,10 +48,11 @@ export default function TakePicture(props) {
         flexOrientation: true,
         forceUpOrientation: true,
       }
-      saveLocation();
       const data = await ref.current.takePictureAsync(opt);
       setCaptured(data.uri)
       setOpen(true)
+      newName = `${props.matricula}-${props.codigo}-${props.situacao}`;
+      console.log(newName);
       await MediaLibrary.saveToLibraryAsync(data.uri);
     }
   }

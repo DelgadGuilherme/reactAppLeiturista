@@ -47,10 +47,11 @@ export default function Form() {
                     onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
                 >   
                     <Picker.Item label="Porfavor Selecione uma opcao:" value="default" />
-                    <Picker.Item label="Opcao 1" value="Opcao 1" />
-                    <Picker.Item label="Opcao 2" value="Opcao 2" />
-                    <Picker.Item label="Opcao 3" value="Opcao 4" />
-                    <Picker.Item label="Opcao 4" value="Opcao 3" />
+                    <Picker.Item label="Leitura Implausivel" value="Leitura Implausivel" />
+                    <Picker.Item label="Releitura" value="Releitura" />
+                    <Picker.Item label="Situação de Risco" value="Situacao de Risco" />
+                    <Picker.Item label="Suspeita de Fraude" value="Suspeita de Fraude" />
+                    <Picker.Item label= "Impedimento de leitura" value="Impedimento de leitura" />
                 </Picker>
                 <TouchableOpacity  style={styles.button} onPress={ () => validar()}>
                     <Text style={styles.buttonText}>Tirar foto</Text>
